@@ -18,7 +18,15 @@
   > 📱 Aplicativo do desafio sobre conceitos básicos do React Native que serviu para mensurar os conhecimentos aprendidos até o momento na trilha de React Native no Ignite
   
   <img height="500px" src="https://user-images.githubusercontent.com/71537090/170805880-5beb8b6c-7d49-443c-b633-759889f494d6.png" />
+  
   <img height="500px" src="https://user-images.githubusercontent.com/71537090/170805879-007cd1b3-7009-4b4b-bd74-2caca91f7eea.png" />
+
+</div>
+
+<div align="center" autoplay>
+  
+  [video](https://user-images.githubusercontent.com/71537090/171087864-e16dcd96-a9a9-4ff8-aecb-c566f63946bc.mp4)
+  
 </div>
 
 ## 🔨 Aprendizado
