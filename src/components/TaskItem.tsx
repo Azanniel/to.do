@@ -32,7 +32,6 @@ export function TaskItem(
 
   function handleSubmitEditing() {
     editTask({ taskId: task.id, taskTitle: taskNewTitleValue });
-    setTaskNewTitleValue(task.title);
     setIsEditing(false);
   }
 
@@ -41,6 +40,7 @@ export function TaskItem(
       if (isEditing) {
         textInputRef.current.focus();
       } else {
+        setTaskNewTitleValue(task.title);
         textInputRef.current.blur();
       }
     }
