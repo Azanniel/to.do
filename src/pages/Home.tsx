@@ -5,6 +5,11 @@ import { Header } from '../components/Header';
 import { Task, TasksList } from '../components/TasksList';
 import { TodoInput } from '../components/TodoInput';
 
+export type EditTaskArgs = {
+  taskId: number;
+  taskTitle: string;
+}
+
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -49,12 +54,34 @@ export function Home() {
         },
         {
           text: 'Sim',
+          style: 'destructive',
           onPress: () => {
             setTasks(oldValue => oldValue.filter(item => item.id !== id));
           }
         }
       ]
     );
+  }
+
+  function handleEditTask({taskId, taskTitle}: EditTaskArgs) {
+    const updatedTasks = tasks.map(task => ({ ...task }));
+
+    const taskToUpdate = updatedTasks.find(item => item.id === taskId);
+
+    if(!taskToUpdate) {
+      return;
+    }
+
+    if(updatedTasks.find(item => item.title === taskTitle.trim())) {
+      return Alert.alert(
+        'Task já cadastrada', 
+        'Você não pode atualizar uma task com o mesmo nome'
+      );
+    }
+
+    taskToUpdate.title = taskTitle;
+
+    setTasks(updatedTasks);
   }
 
   return (
@@ -66,7 +93,8 @@ export function Home() {
       <TasksList 
         tasks={tasks} 
         toggleTaskDone={handleToggleTaskDone}
-        removeTask={handleRemoveTask} 
+        removeTask={handleRemoveTask}
+        editTask={handleEditTask}
       />
     </View>
   )
